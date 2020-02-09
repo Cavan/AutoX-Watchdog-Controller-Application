@@ -11,6 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".CaptureView"></activity>
+        <activity android:name=".CameraCommand" />
+        <activity android:name=".AlertFeed" />
+        <activity android:name=".LoginUser" />
+        <activity android:name=".RegisterUser" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
