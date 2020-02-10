@@ -3,6 +3,7 @@ package autoxwatchdog.commander;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
@@ -58,4 +59,9 @@ public class CameraCommand extends AppCompatActivity {
 
     }
 
+    public void viewReceivedCaptures(View view) {
+        Intent intent = new Intent(this, CaptureView.class);
+        startActivity(intent);
+
+    }
 }

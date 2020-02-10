@@ -93,4 +93,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rightView" />
+
+    <Button
+        android:id="@+id/listCaptures"
+        android:layout_width="172dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="103dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="View Captures"
+        android:textColor="@color/buttonText"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:onClick="viewReceivedCaptures"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rearView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
