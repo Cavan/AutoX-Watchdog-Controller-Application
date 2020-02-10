@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AutoXWatchdog</string>
+    <string name="hardware_unit">+12262289161</string>
+    <string name="test_phone">+15196089384</string>
+    <string name="capture_front">CMD&lt;LOOK_FRONT&gt;</string>
+    <string name="capture_left">CMD&lt;LOOK_LEFT&gt;</string>
+    <string name="capture_right">CMD&lt;LOOK_RIGHT&gt;</string>
+    <string name="capture_rear">CMD&lt;LOOK_BEHIND&gt;</string>
 </resources>
