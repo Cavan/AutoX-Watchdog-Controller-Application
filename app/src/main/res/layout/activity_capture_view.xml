@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/capturedView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="197dp"
+        android:layout_height="47dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="62dp"
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="25dp"
-        android:text="Requested Captures"
+        android:text="Capture Feed"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp"
