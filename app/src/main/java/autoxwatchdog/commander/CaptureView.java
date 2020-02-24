@@ -8,6 +8,8 @@ import android.Manifest;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,16 +17,23 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CaptureView extends AppCompatActivity {
 
     ArrayList<String> smsMessagesList = new ArrayList<>();
+    //Images array
+    ArrayList<Integer> autoxMMS = new ArrayList<>();
     ListView messages;
     ArrayAdapter arrayAdapter;
     private static CaptureView inst;
     private static final int READ_SMS_PERMISSIONS_REQUEST = 1;
     private static final String hardwareUnit = "2262289161";
+    private static final String testNumber = "5196080533";
     private static final String TAG = "CaptureView";
 
     public static CaptureView instance() {
@@ -51,6 +60,8 @@ public class CaptureView extends AppCompatActivity {
             getPermissionToReadSMS();
         } else {
             refreshSmsInbox();
+            //refreshAllMessagesInbox();
+            //refreshAllMessagesInbox();
         }
     }
 
@@ -85,6 +96,8 @@ public class CaptureView extends AppCompatActivity {
             grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(this, "Read SMS permission granted", Toast.LENGTH_SHORT).show();
                 refreshSmsInbox();
+                //refreshAllMessagesInbox();
+                //processMMSImages();
             } else {
                 Toast.makeText(this, "Read SMS permission denied", Toast.LENGTH_SHORT).show();
                  }
@@ -95,6 +108,9 @@ public class CaptureView extends AppCompatActivity {
     }
 
     //Refresh the listview
+    //URI for SMS: "content://sms/inbox"
+    //URI for MMS: "content://mms/inbox"
+    //URI for both SMS/MMS: content://mms-sms/conversations
     public void refreshSmsInbox(){
         ContentResolver contentResolver = getContentResolver();
         Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"),null, null, null, null );
@@ -107,8 +123,8 @@ public class CaptureView extends AppCompatActivity {
         Log.d(TAG, "hardwareUnit Value: " + hardwareUnit + "\n");
 
         do {
-            if (smsInboxCursor.getString(indexAddress).equals(hardwareUnit))
-            {
+           if (smsInboxCursor.getString(indexAddress).equals(testNumber))
+           {
                 String str = "SMS From: " + smsInboxCursor.getString(indexAddress) +
                         "\n" + smsInboxCursor.getString(indexBody) + "\n";
                 arrayAdapter.add(str);
@@ -118,7 +134,78 @@ public class CaptureView extends AppCompatActivity {
         } while (smsInboxCursor.moveToNext());
     }
 
+    //Get both SMS and MMS messages
+    public void refreshAllMessagesInbox(){
+
+        ContentResolver contentResolver = getContentResolver();
+        final String[] projection = new String[]{"*"};
+        Uri uri = Uri.parse("content://mms-sms/conversations/");
+        Cursor query = contentResolver.query(uri, projection, null, null, null);
+        if (query.moveToFirst()) {
+            do {
+                String string = query.getString(query.getColumnIndex("ct_t"));
+                if ("application/vnd.wap.multipart.related".equals(string)) {
+                    // it's MMS
+                    Log.d(TAG, "MMS Messages found \n");
+                    processMMSImages();
+                    //Process and extract the MMS message and insert it into a container which will be used to ...
+                    // display in a list activity.
+
+                } else {
+                    // it's SMS
+                    Log.d(TAG, "SMS Messages found \n");
+                }
+            } while (query.moveToNext());
+        }
+
+    }
+
+
+    // Code to get MMS is from the following link
+    //https://stackoverflow.com/questions/3012287/how-to-read-mms-data-in-android
+    private void processMMSImages(){
+
+        String selectionPart = "mid=";
+        Uri uri = Uri.parse("content://mms/part");
+        Cursor cPart = getContentResolver().query(uri, null,
+                null, null, null);
+        if (cPart.moveToFirst()) {
+            do {
+                String partId = cPart.getString(cPart.getColumnIndex("_id"));
+                String type = cPart.getString(cPart.getColumnIndex("ct"));
+                if ("image/jpeg".equals(type) || "image/bmp".equals(type) ||
+                        "image/gif".equals(type) || "image/jpg".equals(type) ||
+                        "image/png".equals(type)) {
+                    Bitmap bitmap = getMmsImage(partId);
+                    //Insert into a container
+                    autoxMMS.add(bitmap.hashCode());
+                }
+            } while (cPart.moveToNext());
+        }
+    }
+
+
+    // Code to get MMS is from the following link
+    //https://stackoverflow.com/questions/3012287/how-to-read-mms-data-in-android
+    private Bitmap getMmsImage(String _id) {
+        Uri partURI = Uri.parse("content://mms/part/" + _id);
+        InputStream is = null;
+        Bitmap bitmap = null;
+        try {
+            is = getContentResolver().openInputStream(partURI);
+            bitmap = BitmapFactory.decodeStream(is);
+        } catch (IOException e) {}
+        finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {}
+            }
+        }
+        return bitmap;
+    }
 
 
 
-}
+
+} //End of class
