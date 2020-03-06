@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AutoXImageViewer"></activity>
+        <activity android:name=".AmazonS3_Demo"></activity>
+        <activity android:name=".AutoXImageViewer" />
         <activity android:name=".CaptureView" />
         <activity android:name=".CameraCommand" />
         <activity android:name=".AlertFeed" />
