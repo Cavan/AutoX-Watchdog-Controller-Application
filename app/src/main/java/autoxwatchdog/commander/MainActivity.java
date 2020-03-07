@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void s3Demo(View view) {
+        Intent intent = new Intent(this, AmazonS3_Demo.class);
+        startActivity(intent);
+    }
+
     //Create Notification for Alerts
     public void sendNotification(){
         NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
@@ -73,5 +78,6 @@ public class MainActivity extends AppCompatActivity {
             return notifyBuilder;
 
     }
+
 
 }

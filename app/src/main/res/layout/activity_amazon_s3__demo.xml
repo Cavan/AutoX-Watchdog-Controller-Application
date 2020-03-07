@@ -6,4 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".AmazonS3_Demo">
 
+    <TextView
+        android:id="@+id/s3demoView"
+        android:layout_width="407dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="42dp"
+        android:text="Amazon S3 Demo"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

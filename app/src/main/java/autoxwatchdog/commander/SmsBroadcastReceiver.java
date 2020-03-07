@@ -48,6 +48,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
             smsMessageStr += "Time: " + hourStr + "\n";
 
                 CaptureView inst = CaptureView.instance();
+
                 inst.updateInbox(smsMessageStr);
 
 
