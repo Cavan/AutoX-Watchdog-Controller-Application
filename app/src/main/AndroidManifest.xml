@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AutoXImageViewer"></activity>
+        <activity android:name=".AutoXWatchdogImages"></activity>
         <activity android:name=".CaptureView" />
         <activity android:name=".CameraCommand" />
         <activity android:name=".AlertFeed" />

@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void viewCaptures(View view) {
+        Intent intent = new Intent(this, AutoXWatchdogImages.class);
+        startActivity(intent);
+    }
+
     //Create Notification for Alerts
     public void sendNotification(){
         NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
