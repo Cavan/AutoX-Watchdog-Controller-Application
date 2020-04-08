@@ -33,7 +33,7 @@ public class CaptureView extends AppCompatActivity {
     private static CaptureView inst;
     private static final int READ_SMS_PERMISSIONS_REQUEST = 1;
     private static final String hardwareUnit = "2262289161";
-    private static final String testNumber = "5196080533";
+    private static final String testNumber = "2262289161";
     private static final String TAG = "CaptureView";
 
     public static CaptureView instance() {
