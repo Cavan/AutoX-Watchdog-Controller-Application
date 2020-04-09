@@ -2,7 +2,8 @@
  * PROJECT: AutoX Watchdog
  * PROGRAMMER: Cavan Biggs
  * FIRST VERSION: February 10th 2020
- * DESCRIPTION:
+ * DESCRIPTION: Source in this file is used to handle the outgoing commands that are sent to the
+ *              hardware unit via SMS messages.
  *
  *
  *
@@ -35,15 +36,15 @@ public class CameraCommand extends AppCompatActivity {
 
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : sendFrontCaptureCommand
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Button event handler
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : View view
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void sendFrontCaptureCommand(View view) {
@@ -51,15 +52,15 @@ public class CameraCommand extends AppCompatActivity {
         sendCommandToHardware(getString(R.string.capture_front));
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : sendLeftCaptureCommand
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Button event handler
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : View view
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void sendLeftCaptureCommand(View view) {
@@ -67,15 +68,15 @@ public class CameraCommand extends AppCompatActivity {
         sendCommandToHardware(getString(R.string.capture_left));
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : sendRightCaptureCommand
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Button event handler
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : View view
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void sendRightCaptureCommand(View view) {
@@ -83,15 +84,15 @@ public class CameraCommand extends AppCompatActivity {
         sendCommandToHardware(getString(R.string.capture_right));
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : sendRearCaptureCommand
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Button event handler
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : View view
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void sendRearCaptureCommand(View view) {
@@ -99,15 +100,16 @@ public class CameraCommand extends AppCompatActivity {
         sendCommandToHardware(getString(R.string.capture_rear));
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : buttonTest
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Displays a toast message to the user showing what button
+     *                      was pressed.
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : String buttonPressed
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     private void buttonTest(String buttonPressed){
@@ -119,15 +121,15 @@ public class CameraCommand extends AppCompatActivity {
         toast.show();
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : sendCommandToHardware
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Sends the command to the hardware via SMS
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : String command
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     //Send the command to the hardware
@@ -137,15 +139,15 @@ public class CameraCommand extends AppCompatActivity {
 
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : viewReceivedCaptures
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Launches the activity to view returned captures
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : View view
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void viewReceivedCaptures(View view) {

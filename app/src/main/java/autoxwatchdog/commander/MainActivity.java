@@ -2,7 +2,9 @@
  * PROJECT: AutoX Watchdog
  * PROGRAMMER: Cavan Biggs
  * FIRST VERSION: February 10th 2020
- * DESCRIPTION:
+ * DESCRIPTION: The purpose of this application is to provide an interface to control the hardware unit
+ *              of the AutoX Watchdog system, it will allow the user to control the camera, and will
+ *              also receive notifications from the system when motion is detected.
  *
  *
  *
@@ -45,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : testCommands
      *
-     *	DESCRIPTION		:
-     *
-     *
-     *	PARAMETERS		:
+     *	DESCRIPTION		  : Launches the CameraCommand activity
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : View view
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void testCommands(View view) {
@@ -63,15 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : s3Demo
      *
-     *	DESCRIPTION		:
-     *
-     *
-     *	PARAMETERS		:
+     *	DESCRIPTION		  : Used to launch the S3 demo connection
+     *                      currently not in use.
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : View view
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void s3Demo(View view) {
@@ -79,15 +82,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : sendNotification
      *
-     *	DESCRIPTION		:
-     *
-     *
-     *	PARAMETERS		:
+     *	DESCRIPTION		  : Used to test the notification feature
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : void
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     //Create Notification for Alerts
@@ -96,15 +99,15 @@ public class MainActivity extends AppCompatActivity {
         mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : createNotificationChannel
      *
-     *	DESCRIPTION		:
-     *
-     *
-     *	PARAMETERS		:
+     *	DESCRIPTION		  : Create the notification channel
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : void
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void createNotificationChannel()
@@ -125,15 +128,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : getNotificationBuilder
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Builds the notification to be displayed
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : void
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     private NotificationCompat.Builder getNotificationBuilder(){

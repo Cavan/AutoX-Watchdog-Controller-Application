@@ -2,15 +2,17 @@
  * PROJECT: AutoX Watchdog
  * PROGRAMMER: Cavan Biggs
  * FIRST VERSION: February 10th 2020
- * DESCRIPTION:
+ * DESCRIPTION: This file contains the code necessary for retrieving and displaying SMS messages from the phone's
+ *              inbox.
  *
  *
+ * Source citation: https://www.androidauthority.com/how-to-create-an-sms-app-721438/
  *
  *
  *
  */
 package autoxwatchdog.commander;
-//Source citation: https://www.androidauthority.com/how-to-create-an-sms-app-721438/
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -76,15 +78,15 @@ public class CaptureView extends AppCompatActivity {
         }
     }
     /*
-     *	METHOD			  :
+     *	METHOD			  : updateInbox
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Updates the inbox with a new message
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : final String smsMessage
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void updateInbox(final String smsMessage) {
@@ -94,15 +96,16 @@ public class CaptureView extends AppCompatActivity {
     }
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : getPermissionToReadSMS
      *
-     *	DESCRIPTION		  :
+     *	DESCRIPTION		  : Makes sure the application has permission to read the phones
+     *                      messages from the inbox, by requesting permission if not already
+     *                      granted.
+     *
+     *	PARAMETERS		  : void
      *
      *
-     *	PARAMETERS		  :
-     *
-     *
-     *	RETURNS			  :
+     *	RETURNS			  : void
      *
      */
     //Permission Methods
@@ -121,15 +124,15 @@ public class CaptureView extends AppCompatActivity {
     }
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : onRequestPermissionsResult
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Checks if permission is granted for reading SMS messages.
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : int requestCode,@NonNull String permissions[],@NonNull int[] grantResults
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     @Override
@@ -154,15 +157,15 @@ public class CaptureView extends AppCompatActivity {
     }
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : refreshSmsInbox
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Updates the inbox for SMS messages.
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : void
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void refreshSmsInbox(){
@@ -193,15 +196,16 @@ public class CaptureView extends AppCompatActivity {
     }
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : refreshAllMessagesInbox
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : This method is used to refresh both SMS and MMS messages
+     *                      (Currently not being used by the application)
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : void
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     //Get both SMS and MMS messages
@@ -231,15 +235,15 @@ public class CaptureView extends AppCompatActivity {
     }
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : processMMSImages
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : NOT IN USE
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : void
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     // Code to get MMS is from the following link
@@ -266,15 +270,15 @@ public class CaptureView extends AppCompatActivity {
     }
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : getMmsImage
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : NOT IN USE
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : String _id
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     // Code to get MMS is from the following link

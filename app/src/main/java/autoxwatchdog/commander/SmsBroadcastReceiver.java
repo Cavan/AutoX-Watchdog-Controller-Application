@@ -2,7 +2,8 @@
  * PROJECT: AutoX Watchdog
  * PROGRAMMER: Cavan Biggs
  * FIRST VERSION: February 10th 2020
- * DESCRIPTION:
+ * DESCRIPTION: The source in this file handles incoming SMS messages, and updates the phone's inbox
+ *              which the app will use as the source for displaying the receive messages.
  *
  *
  *
@@ -29,15 +30,15 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = "SmsBroadcastReceiver";
 
     /*
-     *	METHOD			  :
+     *	METHOD			  : onReceive
      *
-     *	DESCRIPTION		  :
-     *
-     *
-     *	PARAMETERS		  :
+     *	DESCRIPTION		  : Handle the incoming SMS messages
      *
      *
-     *	RETURNS			  :
+     *	PARAMETERS		  : Context context, Intent intent
+     *
+     *
+     *	RETURNS			  : void
      *
      */
     public void onReceive(Context context, Intent intent){

@@ -2,7 +2,8 @@
  * PROJECT: AutoX Watchdog
  * PROGRAMMER: Cavan Biggs
  * FIRST VERSION: February 10th 2020
- * DESCRIPTION:
+ * DESCRIPTION: This file is used to create a custom adaptor that will be used to display the captured
+ *              images.
  *
  *
  *
