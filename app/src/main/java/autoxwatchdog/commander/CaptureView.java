@@ -1,3 +1,14 @@
+/* FILE: CaptureView.java
+ * PROJECT: AutoX Watchdog
+ * PROGRAMMER: Cavan Biggs
+ * FIRST VERSION: February 10th 2020
+ * DESCRIPTION:
+ *
+ *
+ *
+ *
+ *
+ */
 package autoxwatchdog.commander;
 //Source citation: https://www.androidauthority.com/how-to-create-an-sms-app-721438/
 import androidx.annotation.NonNull;
@@ -64,13 +75,36 @@ public class CaptureView extends AppCompatActivity {
             //refreshAllMessagesInbox();
         }
     }
-
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     public void updateInbox(final String smsMessage) {
         Log.d(TAG, "Raw message: " + smsMessage + "\n");
         arrayAdapter.insert(smsMessage, 0);
         arrayAdapter.notifyDataSetChanged();
     }
 
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     //Permission Methods
     public void getPermissionToReadSMS(){
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
@@ -86,6 +120,18 @@ public class CaptureView extends AppCompatActivity {
         }
     }
 
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[],
@@ -107,11 +153,23 @@ public class CaptureView extends AppCompatActivity {
         }
     }
 
-    //Refresh the listview
-    //URI for SMS: "content://sms/inbox"
-    //URI for MMS: "content://mms/inbox"
-    //URI for both SMS/MMS: content://mms-sms/conversations
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     public void refreshSmsInbox(){
+        //Refresh the listview
+        //URI for SMS: "content://sms/inbox"
+        //URI for MMS: "content://mms/inbox"
+        //URI for both SMS/MMS: content://mms-sms/conversations
         ContentResolver contentResolver = getContentResolver();
         Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"),null, null, null, null );
         int indexBody = smsInboxCursor.getColumnIndex("body");
@@ -123,8 +181,8 @@ public class CaptureView extends AppCompatActivity {
         Log.d(TAG, "hardwareUnit Value: " + hardwareUnit + "\n");
 
         do {
-           if (smsInboxCursor.getString(indexAddress).equals(testNumber))
-           {
+            if (smsInboxCursor.getString(indexAddress).equals(testNumber))
+            {
                 String str = "SMS From: " + smsInboxCursor.getString(indexAddress) +
                         "\n" + smsInboxCursor.getString(indexBody) + "\n";
                 arrayAdapter.add(str);
@@ -134,6 +192,18 @@ public class CaptureView extends AppCompatActivity {
         } while (smsInboxCursor.moveToNext());
     }
 
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     //Get both SMS and MMS messages
     public void refreshAllMessagesInbox(){
 
@@ -160,7 +230,18 @@ public class CaptureView extends AppCompatActivity {
 
     }
 
-
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     // Code to get MMS is from the following link
     //https://stackoverflow.com/questions/3012287/how-to-read-mms-data-in-android
     private void processMMSImages(){
@@ -184,7 +265,18 @@ public class CaptureView extends AppCompatActivity {
         }
     }
 
-
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     // Code to get MMS is from the following link
     //https://stackoverflow.com/questions/3012287/how-to-read-mms-data-in-android
     private Bitmap getMmsImage(String _id) {

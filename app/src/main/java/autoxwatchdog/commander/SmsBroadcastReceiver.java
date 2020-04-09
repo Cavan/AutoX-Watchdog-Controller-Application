@@ -1,3 +1,15 @@
+/* FILE: SmsBroadcastReceiver.java
+ * PROJECT: AutoX Watchdog
+ * PROGRAMMER: Cavan Biggs
+ * FIRST VERSION: February 10th 2020
+ * DESCRIPTION:
+ *
+ *
+ *
+ *
+ *
+ */
+
 package autoxwatchdog.commander;
 
 import android.content.BroadcastReceiver;
@@ -16,6 +28,18 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
     private static final String hardwareUnitAddress = "12262289161";
     private static final String TAG = "SmsBroadcastReceiver";
 
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     public void onReceive(Context context, Intent intent){
 
         Bundle intentExtras = intent.getExtras();

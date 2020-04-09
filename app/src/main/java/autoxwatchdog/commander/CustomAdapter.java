@@ -1,3 +1,15 @@
+/* FILE: CustomAdapter.java
+ * PROJECT: AutoX Watchdog
+ * PROGRAMMER: Cavan Biggs
+ * FIRST VERSION: February 10th 2020
+ * DESCRIPTION:
+ *
+ *
+ *
+ *
+ *
+ */
+
 package autoxwatchdog.commander;
 
 import android.content.Context;

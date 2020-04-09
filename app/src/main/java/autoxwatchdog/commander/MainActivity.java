@@ -1,3 +1,14 @@
+/* FILE: MainActivity.java
+ * PROJECT: AutoX Watchdog
+ * PROGRAMMER: Cavan Biggs
+ * FIRST VERSION: February 10th 2020
+ * DESCRIPTION:
+ *
+ *
+ *
+ *
+ *
+ */
 package autoxwatchdog.commander;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,24 +44,69 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		:
+     *
+     *
+     *	PARAMETERS		:
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     public void testCommands(View view) {
         Intent intent = new Intent(this, CameraCommand.class);
         startActivity(intent);
 
 
     }
-
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		:
+     *
+     *
+     *	PARAMETERS		:
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     public void s3Demo(View view) {
         Intent intent = new Intent(this, AmazonS3_Demo.class);
         startActivity(intent);
     }
-
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		:
+     *
+     *
+     *	PARAMETERS		:
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     //Create Notification for Alerts
     public void sendNotification(){
         NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
         mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
     }
-
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		:
+     *
+     *
+     *	PARAMETERS		:
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     public void createNotificationChannel()
     {
         mNotifyManager = (NotificationManager)
@@ -68,7 +124,18 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
+    /*
+     *	METHOD			  :
+     *
+     *	DESCRIPTION		  :
+     *
+     *
+     *	PARAMETERS		  :
+     *
+     *
+     *	RETURNS			  :
+     *
+     */
     private NotificationCompat.Builder getNotificationBuilder(){
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
                 .setContentTitle("Object Motion Detected")

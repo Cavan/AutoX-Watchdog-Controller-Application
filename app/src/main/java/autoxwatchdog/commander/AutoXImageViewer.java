@@ -1,5 +1,8 @@
 package autoxwatchdog.commander;
 
+//Not implemented: Featured did not meet time constraints.
+//For future implementation (Cavan Biggs April 8th 2020)
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
