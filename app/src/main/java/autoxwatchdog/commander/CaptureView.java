@@ -32,9 +32,15 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+
+import static android.Manifest.permission_group.CALENDAR;
 
 public class CaptureView extends AppCompatActivity {
 
@@ -173,27 +179,71 @@ public class CaptureView extends AppCompatActivity {
         //URI for SMS: "content://sms/inbox"
         //URI for MMS: "content://mms/inbox"
         //URI for both SMS/MMS: content://mms-sms/conversations
+
         ContentResolver contentResolver = getContentResolver();
         Cursor smsInboxCursor = contentResolver.query(Uri.parse("content://sms/inbox"),null, null, null, null );
         int indexBody = smsInboxCursor.getColumnIndex("body");
         int indexAddress = smsInboxCursor.getColumnIndex("address");
-        String indexAddressStr = Integer.toString(indexAddress);
+        int indexDate = smsInboxCursor.getColumnIndex("date");
+
+       // String indexAddressStr = Integer.toString(indexAddress);
         if (indexBody < 0 || !smsInboxCursor.moveToFirst()) return;
         arrayAdapter.clear();
+//        String date = smsInboxCursor.getString(smsInboxCursor.getColumnIndex("date"));
+//        Long timestamp = Long.parseLong(date);
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTimeInMillis(timestamp);
+//        Date finaldate = calendar.getTime();
+//        String smsDate = finaldate.toString();
+//        Log.d("SMS Date", smsDate);
         Log.d(TAG, "indexAddressStr Value: " + smsInboxCursor.getString(indexAddress) + "\n");
         Log.d(TAG, "hardwareUnit Value: " + hardwareUnit + "\n");
 
         do {
             if (smsInboxCursor.getString(indexAddress).equals(testNumber))
             {
+                //smsInboxCursor.getLong(Integer.parseInt("date"));
+                //Call date formatter method here to convert milliseconds to legible date time format
+                long dateTimeMilli = Long.parseLong(smsInboxCursor.getString(indexDate));
+                String smsDate = convertMilliseconds(dateTimeMilli, "dd/MM/yyyy hh:mm:ss");
                 String str = "SMS From: " + smsInboxCursor.getString(indexAddress) +
-                        "\n" + smsInboxCursor.getString(indexBody) + "\n";
+                        "\n" + smsInboxCursor.getString(indexBody) + "\n" +
+                        "\n" + "Received: " + smsDate + "\n";
+
                 arrayAdapter.add(str);
             }
 
 
         } while (smsInboxCursor.moveToNext());
     }
+
+    /*
+     *	METHOD			  : convertMilliseconds
+     *
+     *	DESCRIPTION		  : Convert milliseconds from the sms inbox to
+     *                      a readable date time format.
+     *
+     *
+     *	PARAMETERS		  : long milliSeconds, String dateFormat
+     *
+     *
+     *	RETURNS			  : String
+     *
+     *  CITATION          : This method was sourced from the following url:
+     * https://stackoverflow.com/questions/7953725/how-to-convert-milliseconds-to-date-format-in-android
+     *
+     */
+
+    private String convertMilliseconds(long milliSeconds, String dateFormat){
+        // Create a DateFormatter object for displaying date in specified format.
+        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+        String retDateTime;
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        retDateTime = formatter.format(milliSeconds);
+
+        return retDateTime;
+    }
+
 
     /*
      *	METHOD			  : refreshAllMessagesInbox
