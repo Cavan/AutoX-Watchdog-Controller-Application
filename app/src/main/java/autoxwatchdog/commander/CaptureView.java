@@ -238,7 +238,7 @@ public class CaptureView extends AppCompatActivity {
         // Create a DateFormatter object for displaying date in specified format.
         SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
         String retDateTime;
-        // Create a calendar object that will convert the date and time value in milliseconds to date.
+
         retDateTime = formatter.format(milliSeconds);
 
         return retDateTime;

@@ -14,17 +14,17 @@ The application is designed to do the following:
 
 **Application entry point**
 
-<img src="https://i.ibb.co/yRjBS5S/Screenshot-20200410-021159-Auto-XWatchdog.png" alt="Screenshot-20200410-021159-Auto-XWatchdog" style="zoom:50%;" />
+![Startscreen](https://i.ibb.co/R93ssKh/startscreen.png)
 
 
 
 **Camera Controls**
 
-<img src="https://i.ibb.co/6P2MPDd/Screenshot-20200410-021151-Auto-XWatchdog.png" alt="Screenshot-20200410-021151-Auto-XWatchdog" style="zoom:50%;" />
+![CommandScreen](https://i.ibb.co/6DFVBVn/command-Screen.png)
 
 
 
 **Alerts Feed**
 
-<img src="https://i.ibb.co/kDMCzjn/Screenshot-20200410-021208-Auto-XWatchdog.png" alt="Screenshot-20200410-021208-Auto-XWatchdog" style="zoom:50%;" />
+![AlertFeed](https://i.ibb.co/Jr1vC54/alert-Feed.png)
 
